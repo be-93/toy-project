@@ -1,0 +1,14 @@
+# docker install
+# docker pull postgres
+# docker run --name toy -d -p 5433:5432 -e POSTGRES_PASSWORD="1234" postgres
+# docker exec -it toy /bin/bash
+# psql -U postgres
+# CREATE USER toy PASSWORD '1234' SUPERUSER;
+# CREATE DATABASE toy OWNER toy;
+
+spring:
+  profiles:
+    active: local
+
+server:
+  port: 7700
