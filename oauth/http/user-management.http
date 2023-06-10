@@ -1,0 +1,9 @@
+### 회원가입
+POST http://localhost:7700/api/v1/users
+Content-Type: application/json
+
+{
+  "userId": "be-93",
+  "name": "backend engineer",
+  "password": "a!12341234"
+}
