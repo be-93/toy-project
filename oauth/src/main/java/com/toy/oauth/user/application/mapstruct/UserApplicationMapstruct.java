@@ -1,4 +1,4 @@
-package com.toy.oauth.user.adapter.in.rest.mapstruct;
+package com.toy.oauth.user.application.mapstruct;
 
 import com.toy.oauth.user.adapter.in.rest.request.CreateRequest;
 import com.toy.oauth.user.adapter.in.rest.response.UserResponse;
@@ -7,10 +7,8 @@ import com.toy.oauth.user.domain.model.User;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
-public interface UserRestMapstruct {
+public interface UserApplicationMapstruct {
 
-  CreateCommand toCreateCommand(CreateRequest request);
-
-  UserResponse toResponse(User user);
+  User toUser(CreateCommand command);
 
 }

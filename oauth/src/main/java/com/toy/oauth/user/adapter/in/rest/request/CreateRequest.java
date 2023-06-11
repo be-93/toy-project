@@ -1,8 +1,8 @@
 package com.toy.oauth.user.adapter.in.rest.request;
 
 import com.toy.oauth.common.annotation.Password;
-import com.toy.oauth.user.adapter.out.persistence.entity.UserEntity;
-import com.toy.oauth.user.domain.model.User;
+import com.toy.oauth.user.domain.constants.UserStatus;
+import com.toy.oauth.user.domain.constants.UserType;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SignUpRequest {
+public class CreateRequest {
   @NotNull
   private String userId;
   @NotNull
@@ -21,5 +21,7 @@ public class SignUpRequest {
   @NotNull
   @Password
   private String password;
-
+  @NotNull
+  private UserType type;
+  private UserStatus status = UserStatus.ACTIVE;
 }

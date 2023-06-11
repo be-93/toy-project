@@ -1,7 +1,8 @@
 package com.toy.oauth.user.adapter.out.persistence.entity;
 
-import com.mysema.commons.lang.Assert;
 import com.toy.oauth.common.domain.entity.BaseEntity;
+import com.toy.oauth.user.domain.constants.UserStatus;
+import com.toy.oauth.user.domain.constants.UserType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -35,4 +36,9 @@ public class UserEntity extends BaseEntity {
   @Column(name = "password", length = 50)
   private String password;
 
+  @Column(name = "type", length = 30)
+  private UserType type;
+
+  @Column(name = "status", length = 10)
+  private UserStatus status;
 }

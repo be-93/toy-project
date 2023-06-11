@@ -1,4 +1,4 @@
-package com.toy.oauth.user.domain.model;
+package com.toy.oauth.user.application.port.in.command;
 
 import com.toy.oauth.user.domain.constants.UserStatus;
 import com.toy.oauth.user.domain.constants.UserType;
@@ -7,18 +7,14 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-
-@Builder
 @Getter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
-
-  private Long id;
+public class CreateCommand {
   private String userId;
   private String name;
   private String password;
   private UserType type;
   private UserStatus status;
-
 }
