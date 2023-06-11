@@ -2,9 +2,9 @@ package com.toy.oauth.user.adapter.in.rest;
 
 import com.toy.oauth.common.annotation.RestAdapter;
 import com.toy.oauth.user.adapter.in.rest.mapstruct.UserRestMapstruct;
-import com.toy.oauth.user.application.port.in.UserUseCase;
+import com.toy.oauth.user.application.port.in.UserCommandCase;
 import com.toy.oauth.user.adapter.in.rest.response.UserResponse;
-import com.toy.oauth.user.adapter.in.rest.request.SignUpRequest;
+import com.toy.oauth.user.adapter.in.rest.request.CreateRequest;
 import com.toy.oauth.user.domain.model.User;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -21,11 +21,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserRestAdapter {
 
   private final UserRestMapstruct userRestMapstruct;
-  private final UserUseCase userUseCase;
+  private final UserCommandCase userCommandCase;
 
   @PostMapping
-  public ResponseEntity<UserResponse> create(@RequestBody @Valid SignUpRequest request) {
-    User saved = userUseCase.creat(userRestMapstruct.toUser(request));
+  public ResponseEntity<UserResponse> create(@RequestBody @Valid CreateRequest request) {
+    User saved = userCommandCase.create(userRestMapstruct.toCreateCommand(request));
     return ResponseEntity.ok(userRestMapstruct.toResponse(saved));
   }
 
